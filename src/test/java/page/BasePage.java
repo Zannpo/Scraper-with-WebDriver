@@ -6,7 +6,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
-    public String baseURL= "https://azure.microsoft.com/pl-pl/services/devops/#overview";
+    //public String baseURL= "https://azure.microsoft.com/pl-pl/services/devops/#overview";
+    public String baseURL= "https://www.diki.pl/";
 
     public BasePage(WebDriver driver){
         this.driver = driver;
