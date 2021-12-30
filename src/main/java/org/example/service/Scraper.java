@@ -33,8 +33,10 @@ public class Scraper {
         //Wait for the cookies to be clickable
         WebDriverWait wait = new WebDriverWait(driver,10);
         final WebElement linkToCookiesWindow = driver.findElementByClassName("abstractButtonAppearance");
-        wait.until(ExpectedConditions.elementToBeClickable(linkToCookiesWindow));
-        linkToCookiesWindow.findElement(By.cssSelector(".buttonText")).click();
+        if(linkToCookiesWindow.isDisplayed()) {
+            wait.until(ExpectedConditions.elementToBeClickable(linkToCookiesWindow));
+            linkToCookiesWindow.findElement(By.cssSelector(".buttonText")).click();
+        }
 
         final WebElement scrapedElements = driver.findElementByClassName("dictionaryEntity");
         final List<WebElement> elementsList = scrapedElements.findElements(By.tagName("a"));
@@ -43,5 +45,4 @@ public class Scraper {
             driver.quit();
         }
     }
-
 }
