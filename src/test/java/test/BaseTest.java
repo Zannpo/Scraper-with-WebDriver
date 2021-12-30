@@ -17,6 +17,7 @@ public class BaseTest {
         //WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
+        //driver.navigate().to("http://www.90minut.pl/");
         driver.navigate().to("https://azure.microsoft.com/pl-pl/services/devops/#overview");
         //driver.manage().window().maximize();
     }
@@ -24,7 +25,15 @@ public class BaseTest {
     @Test
     public void demo(){
         DocumentationPage documentationPage = new DocumentationPage(driver);
-        driver.findElement(documentationPage.linkToDocumentation).click();
+        //if(driver.findElement(documentationPage.cookiesWindow).isDisplayed() == true)
+        //{
+        //    driver.findElement(documentationPage.linkToAcceptCookies).click();
+        //}
+        //else
+        driver.findElement(documentationPage.durnySelector).click();
+        //FirstLeaguePage firstLeaguePage = new FirstLeaguePage(driver);
+        //driver.findElement(firstLeaguePage.linkToFirstLeague).click();
+
     }
 
     @After
