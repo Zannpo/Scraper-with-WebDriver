@@ -30,10 +30,7 @@ public class BaseTest {
         //    driver.findElement(documentationPage.linkToAcceptCookies).click();
         //}
         //else
-        driver.findElement(documentationPage.durnySelector).click();
-        //FirstLeaguePage firstLeaguePage = new FirstLeaguePage(driver);
-        //driver.findElement(firstLeaguePage.linkToFirstLeague).click();
-
+        driver.findElement(documentationPage.linkToDocumentation).click();
     }
 
     @After

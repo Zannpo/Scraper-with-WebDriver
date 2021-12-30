@@ -24,13 +24,15 @@ public class Scraper {
         scrape("scraping");
     }
 
-    public void scrape(final String value)
+    public void scrape(final String queryValue)
     {
-        driver.get(baseURL + value);
+        driver.get(baseURL + queryValue);
         final WebElement scrapedElements = driver.findElementByClassName("dictionaryEntity");
         final List<WebElement> elementsList = scrapedElements.findElements(By.tagName("a"));
         elementsList.forEach(element -> System.out.println(element.getText()));
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
 }
