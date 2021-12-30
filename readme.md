@@ -1,2 +1,2 @@
-Aplikacja umoøliwiajπca scrapowanie oraz testowanie za pomocπ web drivera.
-W testach uøycie wzorca projektowego POM.
+Aplikacja umo≈ºliwiajaca scrapowanie oraz testowanie za pomoca web drivera.
+W testach u≈ºycie wzorca projektowego POM.
