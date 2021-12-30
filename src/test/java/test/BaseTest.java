@@ -25,7 +25,7 @@ public class BaseTest {
         driver = new ChromeDriver();
         driver.navigate().to("https://www.diki.pl/slownik-angielskiego?q=scraping");
         //driver.navigate().to("https://azure.microsoft.com/pl-pl/services/devops/#overview");
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
     }
 
     @Test
