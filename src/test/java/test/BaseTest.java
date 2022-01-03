@@ -4,7 +4,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,7 +28,7 @@ public class BaseTest {
     }
 
     @Test
-    public void checkAWord(){
+    public void checkAWordCorrectPath(){
         WordPage wordPage = new WordPage(driver);
         WebDriverWait wait = new WebDriverWait(driver,10);
         final WebElement linkToCookiesWindow = driver.findElement(By.className("abstractButtonAppearance"));
@@ -43,6 +42,19 @@ public class BaseTest {
         driver.findElement(wordPage.linkToPronounciation).click();
         driver.findElement(wordPage.linkToGetSentences).click();
         driver.findElement(wordPage.linkToFirstWord).click();
+    }
+
+    @Test
+    public void checkAWordMissingWordInSearch()
+    {   WordPage wordPage = new WordPage(driver);
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        final WebElement linkToCookiesWindow = driver.findElement(By.className("abstractButtonAppearance"));
+        if(linkToCookiesWindow.isDisplayed())
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(linkToCookiesWindow));
+            linkToCookiesWindow.findElement(By.cssSelector(".buttonText")).click();
+        }
+        driver.findElement(wordPage.linkToSearchingLoop).click();
     }
 
     @After
