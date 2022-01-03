@@ -23,7 +23,6 @@ public class LoginTest {
     @Test
     public void registerCorrectData(){
         LoginPage loginPage = new LoginPage(driver);
-        WebDriverWait wait = new WebDriverWait(driver,10);
 
         driver.findElement(loginPage.linkToName).sendKeys("XAE-12");
         driver.findElement(loginPage.linkToSurname).sendKeys("Musk");
@@ -31,17 +30,39 @@ public class LoginTest {
         driver.findElement(loginPage.linkToPassword).sendKeys("pa$$w0d");
         driver.findElement(loginPage.linkToUsername).sendKeys("Xae");
         driver.findElement(loginPage.linkToRulebook).click();
+        driver.findElement(loginPage.linkToSignUp).click();
+    }
 
-        //driver.findElement(loginPage.linkToSignUp).click();
+    @Test
+    public void registerIncorrectEmail(){
+        LoginPage loginPage = new LoginPage(driver);
+
+        driver.findElement(loginPage.linkToName).sendKeys("XAE-12");
+        driver.findElement(loginPage.linkToSurname).sendKeys("Musk");
+        driver.findElement(loginPage.linkToEmail).sendKeys("xaeyahoocom");
+        driver.findElement(loginPage.linkToPassword).sendKeys("pa$$w0d");
+        driver.findElement(loginPage.linkToUsername).sendKeys("Xae");
+        driver.findElement(loginPage.linkToRulebook).click();
+        driver.findElement(loginPage.linkToSignUp).click();
+    }
+
+    @Test
+    public void registerWithoutName(){
+        LoginPage loginPage = new LoginPage(driver);
+
+        driver.findElement(loginPage.linkToSurname).sendKeys("Musk");
+        driver.findElement(loginPage.linkToEmail).sendKeys("xae@yahoo.com");
+        driver.findElement(loginPage.linkToPassword).sendKeys("pa$$w0d");
+        driver.findElement(loginPage.linkToUsername).sendKeys("Xae");
+        driver.findElement(loginPage.linkToRulebook).click();
+        driver.findElement(loginPage.linkToSignUp).click();
     }
 
     @Test
     public void loginViaFacebook()
     {
         LoginPage loginPage = new LoginPage(driver);
-
         driver.findElement(loginPage.linkToFacebookLogin).click();
-
     }
 
     @After
