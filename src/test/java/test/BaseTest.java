@@ -45,7 +45,7 @@ public class BaseTest {
     }
 
     @Test
-    public void checkAWordMissingWordInSearch()
+    public void checkAWordIfMissingWordInSearch()
     {   WordPage wordPage = new WordPage(driver);
         WebDriverWait wait = new WebDriverWait(driver,10);
         final WebElement linkToCookiesWindow = driver.findElement(By.className("abstractButtonAppearance"));
@@ -55,6 +55,34 @@ public class BaseTest {
             linkToCookiesWindow.findElement(By.cssSelector(".buttonText")).click();
         }
         driver.findElement(wordPage.linkToSearchingLoop).click();
+    }
+
+    @Test
+    public void checkAWordIfNonexistingWordInSearch()
+    {   WordPage wordPage = new WordPage(driver);
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        final WebElement linkToCookiesWindow = driver.findElement(By.className("abstractButtonAppearance"));
+        if(linkToCookiesWindow.isDisplayed())
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(linkToCookiesWindow));
+            linkToCookiesWindow.findElement(By.cssSelector(".buttonText")).click();
+        }
+        driver.findElement(wordPage.linkToInputWord).sendKeys("dfdgffg");
+        driver.findElement(wordPage.linkToSearchingLoop).click();
+    }
+
+    @Test
+    public void cancelSearchingAWord()
+    {   WordPage wordPage = new WordPage(driver);
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        final WebElement linkToCookiesWindow = driver.findElement(By.className("abstractButtonAppearance"));
+        if(linkToCookiesWindow.isDisplayed())
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(linkToCookiesWindow));
+            linkToCookiesWindow.findElement(By.cssSelector(".buttonText")).click();
+        }
+        driver.findElement(wordPage.linkToInputWord).sendKeys("scraping");
+        driver.findElement(wordPage.linkToCancelWord).click();
     }
 
     @After
