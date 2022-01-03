@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import page.DocumentationPage;
 import page.WordPage;
@@ -83,6 +84,24 @@ public class BaseTest {
         }
         driver.findElement(wordPage.linkToInputWord).sendKeys("scraping");
         driver.findElement(wordPage.linkToCancelWord).click();
+    }
+
+    @Test
+    public void goToLoginPage()
+    {   WordPage wordPage = new WordPage(driver);
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        final WebElement linkToCookiesWindow = driver.findElement(By.className("abstractButtonAppearance"));
+        if(linkToCookiesWindow.isDisplayed())
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(linkToCookiesWindow));
+            linkToCookiesWindow.findElement(By.cssSelector(".buttonText")).click();
+        }
+        driver.findElement(wordPage.linkToDropDownMenu).click();
+        //Select select = new Select(driver.findElement(wordPage.dropDownMenu));
+        //select.selectByIndex(1);
+
+        driver.findElement(By.xpath("id[menuItem]/option[1]")).click();
+
     }
 
     @After
