@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import page.WordPage;
 
@@ -94,11 +95,15 @@ public class BaseTest {
             wait.until(ExpectedConditions.elementToBeClickable(linkToCookiesWindow));
             linkToCookiesWindow.findElement(By.cssSelector(".buttonText")).click();
         }
-        driver.findElement(wordPage.linkToDropDownMenu).click();
-        //Select select = new Select(driver.findElement(wordPage.dropDownMenu));
-        //select.selectByIndex(1);
+        driver.findElement(wordPage.drop).click();
+        driver.findElement(wordPage.linkToLoginPage).click();
 
-        driver.findElement(By.xpath("id[menuItem]/option[1]")).click();
+        /*For drop downs use Select class
+        /WebElement dropDownMenu = driver.findElement(By.className
+        Select select = new Select(dropDownMenu);
+        select.selectByIndex(1);
+        select.selectByVisibleText("Załóż konto");
+         */
 
     }
 

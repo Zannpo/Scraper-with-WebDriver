@@ -14,7 +14,11 @@ public class WordPage extends BasePage{
     public By linkToFirstWord = By.xpath("/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/ol[1]/li/span[1]/a");
 
     public By linkToDropDownMenu = By.xpath("//*[@id=\"thinHeaderMenuIcon\"]");
-    public By dropDownMenu = By.className("menuItem");
+    public By dropDownMenu = By.id("thinHeaderMenuIcon");
+    public By drop = By.cssSelector("#thinHeaderMenuIcon");
+    public By linkToLoginPage = By.xpath("/html/body/div[1]/div/div/div[3]/a");
+
+    public By registration = By.cssSelector("div.menuItem:nth-child(3) > a:nth-child(1)");
 
     public WordPage(WebDriver driver) {
         super(driver);
