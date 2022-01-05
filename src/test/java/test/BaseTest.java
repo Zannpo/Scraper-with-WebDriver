@@ -86,7 +86,7 @@ public class BaseTest {
     }
 
     @Test
-    public void goToLoginPage()
+    public void goToRegistrationPage()
     {   WordPage wordPage = new WordPage(driver);
         WebDriverWait wait = new WebDriverWait(driver,10);
         final WebElement linkToCookiesWindow = driver.findElement(By.className("abstractButtonAppearance"));
@@ -95,8 +95,14 @@ public class BaseTest {
             wait.until(ExpectedConditions.elementToBeClickable(linkToCookiesWindow));
             linkToCookiesWindow.findElement(By.cssSelector(".buttonText")).click();
         }
+
         driver.findElement(wordPage.drop).click();
-        driver.findElement(wordPage.linkToLoginPage).click();
+        final WebElement dropDownMenu = driver.findElement(By.cssSelector("div.menuItem:nth-child(1)"));
+        if(dropDownMenu.isDisplayed())
+        {
+            WebDriverWait waitForDropDownMenu = new WebDriverWait(driver,10);
+            driver.findElement(wordPage.linkToRegistrationPage).click();
+        }
 
         /*For drop downs use Select class
         /WebElement dropDownMenu = driver.findElement(By.className

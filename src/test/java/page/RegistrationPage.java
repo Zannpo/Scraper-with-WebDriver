@@ -3,7 +3,7 @@ package page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage extends BasePage{
+public class RegistrationPage extends BasePage{
     public By linkToSignUp = By.cssSelector(".buttonVerticalAlignMiddle");
     public By linkToName = By.id("fname");
     public By linkToSurname = By.id("lname");
@@ -14,7 +14,7 @@ public class LoginPage extends BasePage{
     public By linkToFacebookLogin = By.cssSelector(".facebookLoginLink");
 
 
-    public LoginPage(WebDriver driver) {
+    public RegistrationPage(WebDriver driver) {
         super(driver);
     }
 }
